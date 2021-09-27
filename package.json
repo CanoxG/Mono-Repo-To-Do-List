@@ -1,0 +1,15 @@
+{
+  "name": "To-Do-List",
+  "version": "0.0.1",
+  "description": "Mono Repo Reactjs App",
+  "main": "index.js",
+  "author": "Can Guven",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "services/*"
+  ],
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  }
+}

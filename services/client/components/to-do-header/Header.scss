@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  padding: 10px 15px;
+}
+
+.input {
+  flex-grow: 1;
+  height: 35px;
+  padding: 5px 10px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.btn {
+  width: 80px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #852eb4;
+  font-size: 20px;
+  border-radius: 10px;
+  color: black;
+}
+
+h2 {
+  color: white;
+  font-family: "Roboto Thin";
+}
+
+header {
+  margin-bottom: 25px;
+}

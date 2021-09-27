@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  position: relative;
+  padding-right: 30px;
+  margin: 0;
+}
+
+.item {
+  position: relative;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.item:nth-child(1n) {
+  background-color: #cc311e;
+}
+
+.item:nth-child(2n) {
+  background-color: #0d7b88;
+}
+
+.item:nth-child(3n) {
+  background-color: #13460a;
+}
+
+.item:nth-child(4n) {
+  background-color: #5b0f8a;
+}
+
+.todoForm {
+  max-width: 500px;
+  white-space: pre-wrap;
+}
+
+.checkBox {
+  padding: 10px;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  right: 5px;
+  top: -15px;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.editBtn {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  right: 40px;
+  top: -15px;
+  bottom: 0;
+  cursor: pointer;
+}

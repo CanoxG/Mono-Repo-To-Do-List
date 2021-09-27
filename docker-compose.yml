@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  mongo:
+    image: mongo:5.0.2-focal
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: administrator
+#      MONGO_INITDB_ROOT_PASSWORD: secret
+#      MONGO_INITDB_DATABASE: testCrew
+    volumes:
+      - ./services/server/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - dbdata:/data/db
+    networks:
+      - crew-network
+
+#  node-server:
+#    image: tanguven/node-express
+#    restart: always
+#    build: "services/server"
+#    ports:
+#      - "8080:8080"
+#      - "9229:9229"
+#    command: ['sh', '-c', 'npm run start']
+#    depends_on:
+#      - mongo
+#    environment:
+#      NODE_ENV: development
+#      DEBUG: express:*
+#      PORT: 8080
+#      MONGODB_ADMINUSERNAME: admin
+#      MONGODB_ADMINPASSWORD: secret
+#      MONGODB_URL: mongodb://mongo:27017
+#      MONGODB_DATABASE: testCrew
+#    networks:
+#      - crew-network
+
+volumes:
+  dbdata:
+
+networks:
+  crew-network:
+    driver: bridge

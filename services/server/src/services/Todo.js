@@ -1,4 +1,10 @@
-import { getAllTodos, insertTodo, deleteTodo, updateTodo } from "../models/Todo";
+import {
+  getAllTodos,
+  insertTodo,
+  deleteTodo,
+  updateTodo,
+  findTodo,
+} from "../models/Todo";
 
 export async function getTodos() {
   const response = await getAllTodos();
@@ -7,15 +13,18 @@ export async function getTodos() {
 
 export async function postTodos(text) {
   const res = await insertTodo(text);
-  console.log(res)
+  console.log(res);
   return res;
 }
-
 
 export function deleteTodos(req) {
   return deleteTodo(req);
 }
 
 export function updateTodos(req) {
-  return updateTodo(req)
+  return updateTodo(req);
+}
+
+export function searchTodos(text) {
+  return findTodo(text);
 }

@@ -48,3 +48,13 @@ export async function updateTodo({ id, checked, removed, ...updates }) {
   const updated = getCollection().findOne({ _id: new ObjectId(id) });
   return updated;
 }
+
+export async function findTodo(text) {
+  const search = await getCollection()
+    .find({
+      $text: { $search: text },
+    })
+    .toArray();
+  console.log(search);
+  return search;
+}

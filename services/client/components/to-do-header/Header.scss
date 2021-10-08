@@ -21,6 +21,7 @@
   font-size: 20px;
   border-radius: 10px;
   color: black;
+  margin-left: 15px;
 }
 
 h2 {
@@ -30,4 +31,13 @@ h2 {
 
 header {
   margin-bottom: 25px;
+}
+
+.searchInput {
+  flex-grow: 1;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-left: 10px;
 }

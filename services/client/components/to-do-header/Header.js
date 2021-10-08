@@ -1,10 +1,20 @@
 import React, { useState, useRef } from "react";
 import styles from "./Header.scss";
+import { fetcher } from "../../Files/Fetch";
 
-export default function Header( { onSubmit }) {
+export default function Header({ onSubmit, setState }) {
   const inputRef = useRef("");
   const [render, renderState] = useState();
+  const [searchInput, setSearchInput] = useState("");
   console.log(inputRef);
+
+  const handleSearch = () => {
+    console.log(searchInput);
+    fetcher(`/todos?search=${searchInput}`).then((res) => {
+      console.log(res);
+      setState(res);
+    });
+  };
 
   return (
     <header>
@@ -28,8 +38,8 @@ export default function Header( { onSubmit }) {
             if (inputRef.current.value) {
               onSubmit(inputRef.current.value, () => {
                 inputRef.current.value = null;
-                renderState(undefined)
-              })
+                renderState(undefined);
+              });
             }
           }}
           className={styles.btn}
@@ -38,6 +48,18 @@ export default function Header( { onSubmit }) {
           Add
         </button>
       </form>
+      <div className={styles.container}>
+        <input
+          value={searchInput}
+          onChange={(event) => setSearchInput(event.target.value)}
+          className={styles.searchInput}
+          type="search"
+          placeholder={"Search"}
+        />
+        <button onClick={handleSearch} className={styles.btn}>
+          Search
+        </button>
+      </div>
     </header>
   );
 }

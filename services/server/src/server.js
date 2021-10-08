@@ -1,6 +1,12 @@
 import express from "express";
 import cors from "cors";
-import { deleteTodos, getTodos, postTodos, updateTodos } from "./services/Todo";
+import {
+  deleteTodos,
+  getTodos,
+  postTodos,
+  searchTodos,
+  updateTodos,
+} from "./services/Todo";
 import { server } from "./config/config";
 import { connectDb } from "./database/mongodb";
 
@@ -12,9 +18,14 @@ app.get("/", (_req, res) => {
   res.send("Go to /todos");
 });
 
-app.get("/todos", async (_req, res) => {
-  const todos = await getTodos();
-  res.json(todos);
+app.get("/todos", async (req, res) => {
+  if (req.query.search) {
+    const found = await searchTodos(req.query.search);
+    res.json(found);
+  } else {
+    const todos = await getTodos();
+    res.json(todos);
+  }
 });
 
 app.post("/todos", async (request, response) => {

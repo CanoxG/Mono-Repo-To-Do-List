@@ -68,7 +68,7 @@ export function Home() {
 
   return (
     <BaseLayout>
-      <Header onSubmit={onSubmit} />
+      <Header setState={setState} onSubmit={onSubmit} />
       {errorState && <p>{errorState}</p>}
       <List>
         {state

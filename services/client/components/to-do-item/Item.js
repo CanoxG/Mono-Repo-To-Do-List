@@ -53,10 +53,12 @@ export default function Item({ onChecked, item, removeItem }) {
         🖋
       </button>
 
-      <button className={styles.btn} onClick={removeItem}>
+      <button className={styles.btn} onClick={removeItem || noop}>
         🗑
       </button>
-      <button onClick={onChecked}>done</button>
+      <button className={styles.checkedBtn} onClick={onChecked}>
+        done
+      </button>
     </li>
   );
 }

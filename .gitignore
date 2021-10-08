@@ -4,6 +4,7 @@
 
 
 # Mics
+    .DS_Store
 	.idea/
 	.prettierrc.json
 	package.json

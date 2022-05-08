@@ -1,4 +1,4 @@
-import { Todo } from '../models/Todo';
+import { Todo } from "../models/Todo";
 
 let dataBase = [];
 
@@ -6,13 +6,11 @@ export function getAllData() {
   return dataBase;
 }
 
-
 export function insertData(text) {
-  const newTodo = Todo({text});
-  dataBase.push(newTodo)
-  return newTodo
+  const newTodo = Todo({ text });
+  dataBase.push(newTodo);
+  return newTodo;
 }
-
 
 export function deleteData({ id, removed }) {
   dataBase = dataBase.map((item) => {
@@ -26,31 +24,36 @@ export function deleteData({ id, removed }) {
   });
 }
 
-export function updateData({id, ...rest}) {
-      const { db , updated} = dataBase.reduce((acc, data) => {
-        if (data.id === id) {
-          acc.db.push({
-            ...data,
-            ...rest,
-          });
-          acc.updated = true;// UPDATE OLDUGU VERISINI TUTUYORUZ OLMAZSA DIGER CONDITION GECSIN
-        } else {
-          acc.db.push(data)
-        }
-        return acc;
-      }, {db: [], updated: false});
-
-      if (updated) {
-        dataBase = db;
+export function updateData({ id, ...rest }) {
+  const { db, updated } = dataBase.reduce(
+    (acc, data) => {
+      if (data.id === id) {
+        acc.db.push({
+          ...data,
+          ...rest,
+        });
+        /* UPDATE OLDUGU VERISINI TUTUYORUZ OLMAZSA 
+          DIGER CONDITION GECSIN */
+        acc.updated = true;
       } else {
-        const newTodo = Todo(rest);
-        dataBase.push(newTodo);
-        return {
-          id: newTodo.id,
-          message: 'New Todo created',
-        }
+        acc.db.push(data);
       }
-      return {
-        message: `${id} updated`
-      }
-};
+      return acc;
+    },
+    { db: [], updated: false }
+  );
+
+  if (updated) {
+    dataBase = db;
+  } else {
+    const newTodo = Todo(rest);
+    dataBase.push(newTodo);
+    return {
+      id: newTodo.id,
+      message: "New Todo created",
+    };
+  }
+  return {
+    message: `${id} updated`,
+  };
+}

@@ -1,14 +1,14 @@
 .container {
   display: flex;
-  position: relative;
   padding-right: 30px;
   margin: 0;
 }
 
 .item {
-  position: relative;
+  border-radius: 10px ;
+  max-width: 60%;
   padding: 10px;
-  margin-bottom: 20px;
+  margin: auto;
   color: white;
   cursor: pointer;
 }
@@ -30,7 +30,7 @@
 }
 
 .todoForm {
-  max-width: 500px;
+  flex: 1;
   white-space: pre-wrap;
 }
 
@@ -41,10 +41,6 @@
 .btn {
   border: none;
   background-color: transparent;
-  position: absolute;
-  right: 5px;
-  top: -15px;
-  bottom: 0;
   cursor: pointer;
 }
 
@@ -55,15 +51,10 @@
 .editBtn {
   border: none;
   background-color: transparent;
-  position: absolute;
-  right: 40px;
-  top: -15px;
-  bottom: 0;
   cursor: pointer;
 }
 
 .checkedBtn {
   border-radius: 10px;
-  position: absolute;
-  right: 75px;
+  margin-left: 5px;
 }

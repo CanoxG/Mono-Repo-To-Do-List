@@ -6,15 +6,12 @@ services:
     restart: unless-stopped
     ports:
       - "27017:27017"
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: administrator
-#      MONGO_INITDB_ROOT_PASSWORD: secret
-#      MONGO_INITDB_DATABASE: testCrew
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
-      - ./services/server/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+#      - ./services/server/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
       - dbdata:/data/db
-    networks:
-      - crew-network
 
 #  node-server:
 #    image: tanguven/node-express
@@ -39,7 +36,3 @@ services:
 
 volumes:
   dbdata:
-
-networks:
-  crew-network:
-    driver: bridge

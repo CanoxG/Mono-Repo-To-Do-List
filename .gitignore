@@ -1,11 +1,16 @@
 # Modules
   dist
-  node_modules/
 
 
-# Mics
-    .DS_Store
-    .idea/
-	.prettierrc.json
-	yarn-error.log
-	yarn.lock
+## MICS
+.idea/
+.DS_Store
+.package.json
+.yarn.lock
+yarn-error.log
+.prettierrc.json
+
+
+## Modules
+/node_modules
+

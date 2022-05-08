@@ -18,47 +18,49 @@ export default function Header({ onSubmit, setState }) {
 
   return (
     <header>
-      <h2>What is your plan Today ?</h2>
-      <form action="text" className={styles.container}>
-        <input
-          onChange={() => {
-            if (!render) {
-              renderState(inputRef.current.value);
-            }
-          }}
-          ref={inputRef}
-          className={styles.input}
-          type={"text"}
-          placeholder={"Add To Do"}
-        />
-        <button
-          disabled={!inputRef.current.value}
-          onClick={(event) => {
-            event.preventDefault();
-            if (inputRef.current.value) {
-              onSubmit(inputRef.current.value, () => {
-                inputRef.current.value = null;
-                renderState(undefined);
-              });
-            }
-          }}
-          className={styles.btn}
-          type={"submit"}
-        >
-          Add
-        </button>
-      </form>
-      <div className={styles.container}>
-        <input
-          value={searchInput}
-          onChange={(event) => setSearchInput(event.target.value)}
-          className={styles.searchInput}
-          type="search"
-          placeholder={"Search"}
-        />
-        <button onClick={handleSearch} className={styles.btn}>
-          Search
-        </button>
+      <h1>What is your plan Today ?</h1>
+      <div>
+        <form action="text" className={styles.container}>
+          <input
+            onChange={() => {
+              if (!render) {
+                renderState(inputRef.current.value);
+              }
+            }}
+            ref={inputRef}
+            className={styles.input}
+            type={"text"}
+            placeholder={"Add To Do"}
+          />
+          <button
+            disabled={!inputRef.current.value}
+            onClick={(event) => {
+              event.preventDefault();
+              if (inputRef.current.value) {
+                onSubmit(inputRef.current.value, () => {
+                  inputRef.current.value = null;
+                  renderState(undefined);
+                });
+              }
+            }}
+            className={styles.btn}
+            type={"submit"}
+          >
+            Add
+          </button>
+        </form>
+        <div className={styles.container}>
+          <input
+            value={searchInput}
+            onChange={(event) => setSearchInput(event.target.value)}
+            className={styles.searchInput}
+            type="search"
+            placeholder={"Search"}
+          />
+          <button onClick={handleSearch} className={styles.btn}>
+            🔍
+          </button>
+        </div>
       </div>
     </header>
   );

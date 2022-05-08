@@ -1,11 +1,15 @@
-import { MongoClient, ObjectId } from 'mongodb';
-import { dataBase } from '../config/config';
+import { MongoClient, ObjectId } from "mongodb";
+import { dataBase } from "../config/config";
 
 export const options = {
   connectTimeoutMS: 30000,
   socketTimeoutMS: 70000,
   family: 4,
   maxPoolSize: 10,
+  auth: {
+    username: "root",
+    password: "example",
+  },
 };
 
 const DATABASE = dataBase.database;

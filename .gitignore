@@ -13,4 +13,4 @@ yarn-error.log
 
 ## Modules
 /node_modules
-
+/services/server/node_modules
